@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wfg.mapper.StudentMapper">
+    <sql id="studentColumns">
+        sno, sname, sex, photo_url, birthday, college, major, grade, create_time, update_time, is_delete
+    </sql>
+
+    <!-- 获取所有学生数据  -->
+    <select id="getAllStudents" resultType="com.wfg.entity.Student">
+        select * from student where is_delete = 0;
+    </select>
+
+    <!--  添加单个学生  -->
+    <insert id="insertOneStudent" parameterType="com.wfg.entity.Student">
+        insert into student (
+        <include refid="studentColumns"/>
+        )
+        values (
+        #{sno},
+        #{sname},
+        #{sex},
+        #{photoUrl},
+        #{birthday},
+        #{college},
+        #{major},
+        #{grade},
+        current_timestamp,
+        current_timestamp,
+        0
+        )
+    </insert>
+
+<!--  通过学号查询   -->
+    <select id="selectOneBySno" resultType="com.wfg.entity.Student">
+        select <include refid="studentColumns"/>
+            from student
+        where sno = #{sno} and is_delete = 0;
+    </select>
+
+<!--    updateOneStudent:通过学号修改学生信息-->
+    <update id="updateOneStudent" >
+        update student set
+       sname = #{sname}, sex = #{sex},
+       photo_url = #{photoUrl},
+       birthday= #{birthday},
+       college= #{college},
+       major= #{major},
+       grade= #{grade},
+      update_time = current_timestamp
+        where sno = #{sno}
+
+    </update>
+
+<!--    deleteOneStudent 修改学生为禁止状态-->
+    <update id="deleteOneStudent">
+        update student set is_delete = 1 where sno = #{sno}
+
+    </update>
+
+
+</mapper>
