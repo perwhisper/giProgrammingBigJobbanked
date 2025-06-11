@@ -68,14 +68,6 @@ public class StudentController {
 
         int result=studentService.updateStudentBySno(student);
 
-
-
-
-
-
-
-
-
         return Result.success();
     }
 
