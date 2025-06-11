@@ -24,4 +24,6 @@ public interface StudentService {
     List<Course> selectAllCourse();
 
     int updateScoreBySno(CourseStu courseStu);
+
+    List<Student> getStudentsByIsDelete(Integer isDelete);
 }

@@ -13,5 +13,7 @@ public interface CourseMapper {
     // 查询所有课程
     List<Course> selectList(Object o);
 
+    List<Course> selectByIsDelete(Integer isDelete);
+
 
 }

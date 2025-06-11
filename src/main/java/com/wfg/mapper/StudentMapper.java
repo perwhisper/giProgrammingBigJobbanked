@@ -18,4 +18,6 @@ public interface StudentMapper {
     int updateOneStudent(Student student);
 
     int  deleteOneStudent(String sno);
+
+    List<Student> selectByIsDelete(Integer isDelete);
 }

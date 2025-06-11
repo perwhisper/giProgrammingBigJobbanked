@@ -61,4 +61,11 @@
     </update>
 
 
+      <select id="selectByIsDelete" resultType="com.wfg.entity.Student">
+        SELECT sno, sname, sex, photo_url, birthday, college, major, grade, create_time, update_time, is_delete
+        FROM student
+        WHERE is_delete = #{isDelete}
+    </select>
+
+
 </mapper>

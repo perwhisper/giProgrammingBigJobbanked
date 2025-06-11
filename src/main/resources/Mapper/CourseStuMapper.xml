@@ -29,5 +29,10 @@
             c.cno = #{cno};
     </select>
 
+
+    <select id="selectAll" resultType="com.wfg.entity.CourseStu">
+        SELECT id, sno, cno, score
+        FROM course_stu
+    </select>
 </mapper>
 

@@ -30,6 +30,11 @@ public class StudentServiceImpl implements StudentService {
     @Autowired
     private CourseStuMapper courseStuMapper;
 
+
+    @Override
+    public List<Student> getStudentsByIsDelete(Integer isDelete) {
+        return studentMapper.selectByIsDelete(isDelete);
+    }
     @Override
     public List<Student> getStudentInfoList() {
         return studentMapper.getAllStudents();

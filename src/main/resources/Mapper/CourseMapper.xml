@@ -11,5 +11,11 @@
         select * from course ;
 
     </select>
+
+      <select id="selectByIsDelete" resultType="com.wfg.entity.Course">
+        SELECT cno, cname, create_time, is_delete
+        FROM course
+        WHERE is_delete = #{isDelete}
+    </select>
 </mapper>
 

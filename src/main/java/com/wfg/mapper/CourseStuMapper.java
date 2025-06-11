@@ -16,4 +16,5 @@ public interface CourseStuMapper {
     int updateOne(CourseStu courseStu);
 
     List<ScoreBoardDTO> selectByCno(String cno);
+    List<CourseStu> selectAll();
 }
