@@ -11,9 +11,12 @@
         select sno,cno,score from course_stu where sno  = #{sno};
     </select>
 
-    <update id="updateOne">
+    <!-- <update id="updateOne">
         update course_stu set  score = #{score} where sno = #{sno} and cno = #{cno};
-    </update>
+    </update> -->
+    <insert id="updateOne" parameterType="com.wfg.entity.CourseStu">
+        insert course_stu(sno,cno,score) values  (#{sno} , #{cno},#{score});
+    </insert>
 
     <select id="selectByCno" resultType="com.wfg.dto.ScoreBoardDTO">
         SELECT

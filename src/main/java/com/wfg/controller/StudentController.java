@@ -39,8 +39,7 @@ public class StudentController {
     public Result<String> getStudentName(@PathVariable("sno") String sno){
         Student student = studentService.selectBySno(sno);
 
-        System.out.println("sno;"+sno);
-        System.out.println("name:"+student.getSname());
+       
         return Result.success(student.getSname());
 
     }
@@ -51,10 +50,9 @@ public class StudentController {
     @DeleteMapping("/students/{sno}")
     public Result<Student> deleteStudent(@PathVariable("sno") String sno){
 
-        System.out.println();
-        System.out.println("用户要删除"+sno);
+  
         int result = studentService.deleteStudent(sno);
-        System.out.println();
+
         return Result.success();
     }
 
@@ -63,9 +61,7 @@ public class StudentController {
     @PutMapping("/students/{sno}")
     public Result<Student> updateStudent(@PathVariable("sno") String sno,@RequestBody Student student){
 
-        System.out.println("update---"+sno);
-        System.out.println("-----传来的学生数据为："+student);
-
+   
         int result=studentService.updateStudentBySno(student);
 
         return Result.success();
@@ -76,16 +72,14 @@ public class StudentController {
     @GetMapping("students/{sno}")
     public Result<Student> getOneStudent(@PathVariable("sno") String sno) {
         Student student = studentService.selectBySno(sno);
-        System.out.println("student"+student);
+
         return Result.success(student);
     }
 
     @GetMapping("/infoList")
     public Result<List<Student>> getStudentInfoList(){
        List<Student>  studentList =    studentService.getStudentInfoList();
-        System.out.println("student:----"+studentList);
-        System.out.println("后端访问到了");
-        System.out.println(Result.success(studentList));
+
        return  Result.success(studentList);
     }
 

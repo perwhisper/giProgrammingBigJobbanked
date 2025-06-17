@@ -46,7 +46,7 @@ public class ScoreController {
     @PostMapping("/grades")
     public Result updateCourse(@RequestBody CourseStu courseStu){
 
-        System.out.println("-----"+courseStu);
+
         int result = studentService.updateScoreBySno(courseStu);
 
         return Result.success();
